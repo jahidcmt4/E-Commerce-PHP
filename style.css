@@ -1,0 +1,58 @@
+.display-1{
+    text-align: center;
+    font-weight: 700;
+}
+.success-account h3{
+	color: green;
+	font-size: 20px;
+	text-transform: capitalize;
+	font-weight: 700;
+}
+
+
+/*customer-profile*/
+
+.profile-sidebar {
+
+}
+.profile-sidebar ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border: 1px solid #ddd;
+}
+.profile-sidebar ul li{
+	display: block;
+	border-bottom: 1px solid #ddd;
+}
+.profile-sidebar ul li:last-child{
+	border-bottom: 0px solid #ddd;
+}
+.profile-sidebar ul li a{
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+	color: #222;
+	font-size: 16px;
+	font-weight: 600;
+}
+.profile-section table tr th,
+.profile-section table tr td{
+	border: 1px solid #ddd;
+}
+
+.order-countbox{
+	border-radius: 5px;
+	padding: 30px 20px;
+	margin-bottom: 15px;
+}
+.order-countbox h3{
+	color: #fff;
+	font-weight: 700;
+	font-size: 28px;
+}
+.order-countbox h4{
+	color: #fff;
+	font-weight: 600;
+	font-size: 16px;
+}
