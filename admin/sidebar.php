@@ -38,6 +38,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="basicinfo.php"><i class="fa fa-circle-o"></i>Basic Info</a></li>
+            <li><a href="users.php"><i class="fa fa-circle-o"></i>User</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -65,6 +66,18 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="order.php"><i class="fa fa-circle-o"></i>Order List</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span>Customer</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="customer.php"><i class="fa fa-circle-o"></i>Customer List</a></li>
           </ul>
         </li>
         

@@ -26,8 +26,9 @@ $linkedin=$_POST['linkedin'];
 $map=$_POST['map'];
 if(!empty($logos)){
 
-$query1 = mysqli_query($con,"select * from blog where bid=$bid");
+$query1 = mysqli_query($con,"select * from basicinfo where bid=$bid");
 $row = mysqli_fetch_array($query1);
+
 
 
 if($row['logo']!=NULL){
@@ -59,6 +60,7 @@ echo "ERROR" . mysqli_error($con);
 ?> 
 
 <?php 
+
 
 mysqli_close($con);
 ?>

@@ -70,7 +70,7 @@ $glob = mysqli_fetch_array($geninfo);
                 </li>
                 <?php }else{ ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="customer/deshboard.php">Deshboard</a>
+                    <a class="nav-link" href="">Deshboard</a>
                 </li>
             <?php } ?>
             </ul>

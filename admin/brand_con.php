@@ -15,7 +15,7 @@ $target_file = $target_dir . basename($_FILES["images"]["name"]);
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 move_uploaded_file($_FILES["images"]["tmp_name"], $target_file);
 
-$title=$_POST['title'];
+$title=mysqli_real_escape_string($con,$_POST['title']);
 
 $query ="INSERT INTO `brand`(`title`, `images`)VALUES('$title','$prod_image')";
 

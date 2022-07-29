@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2021 at 03:14 PM
+-- Generation Time: Apr 08, 2022 at 12:48 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -31,6 +31,7 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `name` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
+  `pass_text` varchar(255) DEFAULT NULL,
   `password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -38,8 +39,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `email`, `password`) VALUES
-(1, 'Admin', 'admin@admin.com', '25d55ad283aa400af464c76d713c07ad');
+INSERT INTO `admin` (`id`, `name`, `email`, `pass_text`, `password`) VALUES
+(1, 'Admin', 'admin@admin.com', '12345678', '25d55ad283aa400af464c76d713c07ad');
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,7 @@ CREATE TABLE `basicinfo` (
 --
 
 INSERT INTO `basicinfo` (`bid`, `logo`, `phone`, `email`, `address`, `facebook`, `twitter`, `youtube`, `linkedin`, `map`) VALUES
-(1, '1619450477fav.png', '30393292', 'info@gmail.com', 'Sector:07, Uttara, Dhaka 1230 ', '#', '#', '#', '#', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.82239034277!2d90.27923688816911!3d23.780887457377204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2z4Kai4Ka-4KaV4Ka-!5e0!3m2!1sbn!2sbd!4v1640012978962!5m2!1sbn!2sbd\" width=\"100%\" height=\"220\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>');
+(1, '272620387_930332424291398_5724192255474047994_n.jpg', '01785419717', 'info@gmail.com', 'Sector:07, Uttara, Dhaka 1230 ', '#', '#', '#', '#', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.82239034277!2d90.27923688816911!3d23.780887457377204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2z4Kai4Ka-4KaV4Ka-!5e0!3m2!1sbn!2sbd!4v1640012978962!5m2!1sbn!2sbd\" width=\"100%\" height=\"220\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>');
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,8 @@ CREATE TABLE `brand` (
 --
 
 INSERT INTO `brand` (`bid`, `title`, `images`) VALUES
-(2, 'Nike', '1607438982org.png');
+(2, 'Nike\'s ok', '1607438982org.png'),
+(4, 'Nike\'s', 'Screenshot_1.png');
 
 -- --------------------------------------------------------
 
@@ -105,7 +107,7 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`cid`, `title`, `images`) VALUES
 (2, 'Mens', '1607437731org.jpeg'),
 (3, 'Womens', '1608726134org.jpg'),
-(4, 'Kids', '1620659220org.jpg');
+(4, 'Kid\'s Category', '1620659220org.jpg');
 
 -- --------------------------------------------------------
 
@@ -128,7 +130,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `email`, `phone`, `password`, `image`, `reg_date`) VALUES
-(1, 'Jahid', 'jahidcse66@gmail.com', '01785419719', '12345678', '', '2021-12-21');
+(1, 'John', 'jahidcse66@gmail.com', '01785419717', '12345678', '', '2022-02-17'),
+(2, 'Alex', 'jahidhasanpsd@gmail.com', '01984358484', '12345678', '', '2022-02-17');
 
 -- --------------------------------------------------------
 
@@ -147,13 +150,6 @@ CREATE TABLE `orders` (
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`oid`, `cname`, `phone`, `address`, `customer_id`, `order_date`, `pmethod`, `status`) VALUES
-(1, 'Jahid', '01785419719', 'test', '1', '2021-12-21', 'Cash on Delivary', 'Pending');
-
 -- --------------------------------------------------------
 
 --
@@ -169,13 +165,6 @@ CREATE TABLE `order_history` (
   `quantity` varchar(11) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `order_history`
---
-
-INSERT INTO `order_history` (`hid`, `order_id`, `pid`, `name`, `price`, `quantity`, `date`) VALUES
-(1, 1, '3', 'Balancing Trendy Winter Jacket for Men - Black', '1020', '2', '2021-12-21');
 
 -- --------------------------------------------------------
 
@@ -210,7 +199,7 @@ INSERT INTO `products` (`pid`, `title`, `description`, `category`, `brand`, `sku
 (8, 'Women Fashion - Black Star Cotton Long Sleeve Casual Ladies ', 'Women Fashion - Black Star Cotton Long Sleeve Casual Ladies ', '3', '2', 'ger32', '1', '599', '1700', '52358c749cb903810d1f0a8853fba105.jpg', 'Active'),
 (9, 'Baby Sleeping Bag Ultra-Soft Fluffy Fleece Newborn Receiving Blanket', 'Baby Sleeping Bag Ultra-Soft Fluffy Fleece Newborn Receiving Blanket', '4', '2', 'kin433', '1', '390', '670', 'c2e78fe6a2760c7bf1e894dc6941331e.jpg', 'Active'),
 (10, 'Western 2 pieces stylish skrit znd tops for baby girls party dress', 'Western 2 pieces stylish skrit znd tops for baby girls party dress', '4', '2', 'kin322', '1', '247', '600', 'abf0232c9ad538a72f8c3ee1d2c2ae4b.jpg', 'Active'),
-(11, 'Baby Girls Frock Type with Pant Summer Collection', 'Baby Girls Frock Type with Pant Summer Collection', '4', '2', 'knd212', '1', '330', '560', '6272b71fc7d6725b3cf25356414952d9.jpg', 'Active');
+(11, 'Baby\'r Girls Frock Type with Pant Summer Collection', 'Baby Girls Frock Type with Pant Summer Collection', '4', '2', 'knd212', '1', '330', '560', '6272b71fc7d6725b3cf25356414952d9.jpg', 'Active');
 
 --
 -- Indexes for dumped tables
@@ -272,7 +261,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `basicinfo`
@@ -284,37 +273,37 @@ ALTER TABLE `basicinfo`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_history`
 --
 ALTER TABLE `order_history`
-  MODIFY `hid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `hid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

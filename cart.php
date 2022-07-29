@@ -53,7 +53,7 @@ $product_id = array_column($_SESSION['shopping_cart'], 'quantity');
 
 for ($i = 0; $i < count($product_ids); $i++){
  if ($product_id[$i] != $qtys[$i]){
-     //add item quantity to the existing product in the array
+   
    $_SESSION['shopping_cart'][$i]['quantity']=
       $qtys[$i];
       header("Location: cart.php");
